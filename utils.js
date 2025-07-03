@@ -10,15 +10,17 @@ export const allslots = [
 ];
 
 export function availableSlots(data) {
+  const formatter = new Intl.DateTimeFormat("en-IN", {
+    timeZone: "Asia/Kolkata",
+    hour12: true,
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+
   const bookedEvents = data.map((ele) =>
-    new Date(ele.start)
-      .toLocaleTimeString("en-IN", {
-        hour12: true,
-        hour: "2-digit",
-        minute: "2-digit",
-      })
-      .toLowerCase()
+    formatter.format(new Date(ele.start)).toLowerCase()
   );
+
   let result = allslots.filter((slot) => {
     return !bookedEvents.includes(slot.start.toLowerCase());
   });
