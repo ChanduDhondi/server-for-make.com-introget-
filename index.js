@@ -14,6 +14,7 @@ app.get("/allslots", (req, res) => {
 
 app.post("/availableEvents", async (req, res) => {
   const { data } = req.body;
+  console.log(data);
   const response = availableSlots(data);
   res.status(200).json(response);
 });
