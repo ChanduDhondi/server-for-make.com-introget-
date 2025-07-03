@@ -12,7 +12,7 @@ app.get("/allslots", (req, res) => {
   res.status(200).json(resp);
 });
 
-app.post("/availableEvents", async (req, res) => {
+app.post("/availableevents", async (req, res) => {
   const { data } = req.body;
   console.log(data);
   const response = availableSlots(data);
